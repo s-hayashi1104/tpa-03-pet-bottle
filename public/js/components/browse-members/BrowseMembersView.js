@@ -37,25 +37,26 @@ class BrowseMembersView {
     const imageBox = createDiv();
     const image = createImg();
     const nameField = createH3();
-    const MemberName = createP();
+    const memberName = createP();
     const quoteField = createH3();
-    const MemberQuote = createP();
+    const memberQuote = createP();
     const next = createButton();
 
     profile.classList.add('member-profile');
     imageBox.classList.add('member-image-box');
-    MemberName.classList.add('member-name');
-    MemberQuote.classList.add('member-text');
+    memberName.classList.add('member-name');
+    memberQuote.classList.add('member-text');
     next.classList.add('btn-next-member');
 
     image.src = thumbnailUrl;
     nameField.innerHTML = '名前';
-    MemberName.innerHTML = name;
+    memberName.innerHTML = name;
     quoteField.innerHTML = '一言';
-    MemberQuote.innerHTML = quote;
+    memberQuote.innerHTML = quote;
     next.innerHTML = '次へ';
     imageBox.appendChild(image);
-    appendChildren(rootEl, profile, imageBox, nameField, MemberName, quoteField, MemberQuote, next);
+    appendChildren(profile, imageBox, nameField, memberName, quoteField, memberQuote);
+    appendChildren(rootEl, profile, next);
     next.addEventListener('click', () => {
       handleBrowseNextMember();
     });
